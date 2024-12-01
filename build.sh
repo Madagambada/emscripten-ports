@@ -6,6 +6,7 @@ cd emsdk
 ./emsdk install latest
 ./emsdk activate latest
 source ./emsdk_env.sh
+cd ..
 
 ln -s / $EMSDK/upstream/emscripten/em
 mkdir install
