@@ -65,7 +65,7 @@ unzip SDL3-3.1.6.zip
 cd SDL3-3.1.6
 mkdir build
 cd build
-emcmake cmake CFLAGS='-pthread' CXXFLAGS='-pthread' LD_FLAGS='-sPTHREAD_POOL_SIZE=4' -DSDL_STATIC=ON -DCMAKE_BUILD_TYPE=Release -DSDL_THREADS=On -DCMAKE_INSTALL_PREFIX=$installdir ..
+emcmake cmake CFLAGS='-pthread' CXXFLAGS='-pthread' LD_FLAGS='-sPTHREAD_POOL_SIZE=4' -DSDL_STATIC=ON -DSDL_PTHREADS=ON -DCMAKE_BUILD_TYPE=Release -DSDL_THREADS=On -DCMAKE_INSTALL_PREFIX=$installdir ..
 emmake make CFLAGS='-pthread' CXXFLAGS='-pthread' LD_FLAGS='-sPTHREAD_POOL_SIZE=4' -j4
 emmake make install
 cd ../..
