@@ -39,11 +39,22 @@ emmake make -j4
 emmake make install
 cd ..
 
+#c-ares
+wget https://github.com/c-ares/c-ares/releases/download/v1.34.3/c-ares-1.34.3.tar.gz
+tar -xf c-ares-1.34.3.tar.gz
+cd c-ares-1.34.3
+mkdir build
+cd build
+emcmake cmake -DCMAKE_BUILD_TYPE=Release -DCARES_STATIC=Yes -DCARES_SHARED=No -DCARES_BUILD_TOOLS=No -DCMAKE_INSTALL_PREFIX=$installdir ..
+emmake make -j4
+emmake make install
+cd ../..
+
 #curl
 wget https://github.com/curl/curl/releases/download/curl-8_11_0/curl-8.11.0.zip
 unzip curl-8.11.0.zip
 cd curl-8.11.0
-CPPFLAGS="-I$installdir/include/" LDFLAGS="-L$installdir/lib -L$installdir/libx32" emconfigure ./configure --disable-shared --with-openssl --without-libpsl --disable-docs --with-ca-embed=/etc/ssl/certs/ca-certificates.crt --with-nghttp2 --prefix $installdir
+CPPFLAGS="-I$installdir/include/" LDFLAGS="-L$installdir/lib -L$installdir/libx32" emconfigure ./configure --disable-shared --with-openssl --without-libpsl --disable-docs --with-ca-embed=/etc/ssl/certs/ca-certificates.crt --with-nghttp2 --enable-ares --prefix $installdir
 emmake make -j4
 emmake make install
 cd ..
