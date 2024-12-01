@@ -34,7 +34,7 @@ cd ..
 wget https://github.com/madler/zlib/releases/download/v1.3.1/zlib131.zip
 unzip zlib131.zip
 cd zlib-1.3.1
-emconfigure ./configure CFLAGS='-pthread' CXXFLAGS='-pthread' LD_FLAGS='-sPTHREAD_POOL_SIZE=4' --static --prefix $installdir
+emconfigure ./configure --static --prefix $installdir
 emmake make CFLAGS='-pthread' CXXFLAGS='-pthread' LD_FLAGS='-sPTHREAD_POOL_SIZE=4' -j4
 emmake make install
 cd ..
