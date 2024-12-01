@@ -48,4 +48,15 @@ emmake make -j4
 emmake make install
 cd ..
 
+#SDL
+wget https://github.com/libsdl-org/SDL/releases/download/preview-3.1.6/SDL3-3.1.6.zip
+unzip SDL3-3.1.6.zip
+cd SDL3-3.1.6
+mkdir build
+cd build
+emcmake cmake -DSDL_STATIC=ON -DCMAKE_BUILD_TYPE=Release -DSDL_THREADS=On -DCMAKE_INSTALL_PREFIX=$installdir ..
+emmake make -j4
+emmake make install
+cd ../..
+
 tar -zcvf ports.tar.gz install
